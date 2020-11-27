@@ -4,12 +4,13 @@ import { BienvenidaComponent } from './components/bienvenida/bienvenida.componen
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { RegisterComponent } from './components/register/register.component';
 import { IniciarsesionComponent } from "./components/iniciarsesion/iniciarsesion.component";
+import { LoginGuard } from './guards/login.guard';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BienvenidaComponent,
-    pathMatch: 'full'
+    component: BienvenidaComponent
       
   },
   {
@@ -23,8 +24,20 @@ const routes: Routes = [
   },
   {
     path: 'form',
-    component: FormularioComponent
+    component: FormularioComponent, 
+    canActivate:[LoginGuard]
+    
+  },
+  {
+    path: 'welcome',
+    component: BienvenidaComponent,
+  },
+  {
+    path: 'admin',
+    component: AdminComponent, 
+    canActivate:[LoginGuard]
   }
+
 ];
 
 @NgModule({

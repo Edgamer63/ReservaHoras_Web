@@ -6,15 +6,13 @@ import { MatInputModule } from '@angular/material/input';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-//import {MatMenuModule} from '@angular/material/menu'; 
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   exports: [
     MatToolbarModule,
@@ -23,9 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     TextFieldModule,
     MatCardModule,
     MatCheckboxModule,
-    // MatMenuModule,
     MatStepperModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class AppMaterialModule { }

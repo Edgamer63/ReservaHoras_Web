@@ -9,20 +9,38 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { IniciarsesionComponent } from './components/iniciarsesion/iniciarsesion.component'
 
+import {FormsModule, NgModel} from '@angular/forms'
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {DatePipe} from '@angular/common';
+import { LoginGuard } from './guards/login.guard';
+
+import {RouterModule, Routes} from '@angular/router';
+import { AdminComponent } from './components/admin/admin.component';
+
+const routes : Routes = [
+  {path: 'login',component: IniciarsesionComponent},
+  {path: 'register',component: RegisterComponent},
+  {path: 'form',component: FormularioComponent, canActivate:[LoginGuard]},
+  {path: 'welcome',component: BienvenidaComponent}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     FormularioComponent,
     BienvenidaComponent,
-    IniciarsesionComponent
+    IniciarsesionComponent,
+    RegisterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppMaterialModule
+    FormsModule,
+    AppMaterialModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
