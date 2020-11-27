@@ -25,11 +25,12 @@ export class RegisterComponent implements OnInit {
   regUser(n:String,c: String,t:String,p: String){
     localStorage.setItem('correo', this.correo);
     localStorage.setItem('pass', this.pass);
-    this.router.navigateByUrl('/form');
+    this.router.navigateByUrl('/welcome');
     return this.ser.register(n,c,t,p).subscribe(x => this.mensaje_registro = x);
   }
 
   checkUser(c: String){
     return this.ser.checkUser(c).subscribe(x => this.usuario_existe = parseInt(x.toString()));
   }
+  
 }
