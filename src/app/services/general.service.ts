@@ -31,7 +31,7 @@ export class GeneralService {
   }
   
   ingresarHora(correo: String,dia: number, mes: number, anio: number, hora:number,seleccion:number,servicio_contratacion:number,servicio_actualizacion:number){
-    return this.http.post(this.IngPet+`${correo}/${dia}/${mes}/${anio}/${hora}/${seleccion}/${servicio_contratacion}/${servicio_actualizacion}`,this.httpOptions);
+    return this.http.get(this.IngPet+`${correo}/${dia}/${mes}/${anio}/${hora}/${seleccion}/${servicio_contratacion}/${servicio_actualizacion}`,this.httpOptions);
   }
 
   register(nombre:String,correo: String,telefono: String, pass: String){

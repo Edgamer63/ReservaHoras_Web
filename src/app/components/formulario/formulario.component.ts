@@ -48,6 +48,7 @@ export class FormularioComponent implements OnInit {
   formulario_completado=0;
   ingresarHora(Input_correo: String, Input_dia: number, Input_mes: number, Input_anio: number, Input_hora: number, Input_seleccion: number, Input_servicio_contratacion: number, Input_servicio_actualizacion: number) {
     this.ser.ingresarHora(Input_correo, Input_dia, Input_mes, Input_anio, Input_hora, Input_seleccion, Input_servicio_contratacion, Input_servicio_actualizacion).subscribe(x => this.formulario_completado = parseInt(x.toString()));
+    this.router.navigateByUrl('/welcome');
   }
 
   chequearHora(Input_hora: number, Input_dia: number, Input_mes: number, Input_anio: number) {
