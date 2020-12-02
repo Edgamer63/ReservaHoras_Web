@@ -37,11 +37,28 @@ export class FormularioComponent implements OnInit {
 
   correo;
 
+  hora_0=0;
+  hora_1=0;
+  hora_2=0;
+  hora_3=0;
+  hora_4=0;
+  hora_5=0;
+  hora_6=0;
+  hora_7=0;
+  hora_8=0;
+  hora_9=0;
+  hora_10=0;
+  hora_11=0;
+  hora_12=0;
+  hora_13=0;
+  hora_14=0;
+
   constructor(private ser: GeneralService, private router: Router) {
     this.actual_day = ((new Date().getDate()).toString());
-    this.actual_month = ((new Date().getMonth() + 1).toString());
+    this.actual_month = ((new Date().getMonth()+1).toString());
     this.actual_year = ((new Date().getFullYear()).toString());
-    this.actual_date = this.actual_year + "-" + this.actual_month + "-" + this.actual_day;
+    //this.actual_date = this.actual_year + "-" + this.actual_month + "-" + this.actual_day;
+    this.actual_date = new Date().toJSON().split('T')[0];
     this.date = new Date();
   }
 
@@ -56,7 +73,6 @@ export class FormularioComponent implements OnInit {
   }
 
   getDate() {
-    this.date_picked = 1;
     this.dmy = this.date.valueOf().toString();
     this.year = this.dmy.charAt(0) + this.dmy.charAt(1) + this.dmy.charAt(2) + this.dmy.charAt(3);
     this.year_i = parseInt(this.year);
@@ -67,6 +83,29 @@ export class FormularioComponent implements OnInit {
     this.day = this.dmy.charAt(8) + this.dmy.charAt(9);
     this.day_i = parseInt(this.day);
 
+    this.ser.horaExiste(0, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_0 = parseInt(x.toString()));
+    this.ser.horaExiste(1, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_1 = parseInt(x.toString()));
+    this.ser.horaExiste(2, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_2 = parseInt(x.toString()));
+    this.ser.horaExiste(3, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_3 = parseInt(x.toString()));
+    this.ser.horaExiste(4, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_4 = parseInt(x.toString()));
+    this.ser.horaExiste(5, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_5 = parseInt(x.toString()));
+    this.ser.horaExiste(6, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_6 = parseInt(x.toString()));
+    this.ser.horaExiste(7, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_7 = parseInt(x.toString()));
+    this.ser.horaExiste(8, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_8 = parseInt(x.toString()));
+    this.ser.horaExiste(9, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_9 = parseInt(x.toString()));
+    this.ser.horaExiste(10, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_10 = parseInt(x.toString()));
+    this.ser.horaExiste(11, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_11 = parseInt(x.toString()));
+    this.ser.horaExiste(12, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_12 = parseInt(x.toString()));
+    this.ser.horaExiste(13, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_13 = parseInt(x.toString()));
+    this.ser.horaExiste(14, this.day_i, this.month_i, this.year_i).subscribe(x => this.hora_14 = parseInt(x.toString()));
+    
+    setTimeout(() => {
+      
+      this.date_picked = 1;
+      
+      }, 1200);
+    
+    
   }
 
   cerrarSesionPorEliminación(){
