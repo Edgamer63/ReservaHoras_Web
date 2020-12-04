@@ -8,6 +8,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { IniciarsesionComponent } from './components/iniciarsesion/iniciarsesion.component'
+import { SucursalesComponent } from './components/sucursales/sucursales.component'
 
 import {FormsModule, NgModel} from '@angular/forms'
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -21,7 +22,8 @@ const routes : Routes = [
   {path: 'login',component: IniciarsesionComponent},
   {path: 'register',component: RegisterComponent},
   {path: 'form',component: FormularioComponent, canActivate:[LoginGuard]},
-  {path: 'welcome',component: BienvenidaComponent}
+  {path: 'welcome',component: BienvenidaComponent},
+  {path: 'sucursales',component: SucursalesComponent}
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const routes : Routes = [
     BienvenidaComponent,
     IniciarsesionComponent,
     RegisterComponent,
-    AdminComponent
+    AdminComponent,
+    SucursalesComponent
   ],
   imports: [
     BrowserModule,

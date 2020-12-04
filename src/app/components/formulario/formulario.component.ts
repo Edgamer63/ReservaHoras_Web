@@ -124,6 +124,3 @@ export class FormularioComponent implements OnInit {
   }
 
 }
-
-
-
